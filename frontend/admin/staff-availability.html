@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Availability | Appointly</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/staff-availability.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="customers.html" class="nav-item">
+                <span>♙</span>
+                Customers
+            </a>
+
+            <a href="staff.html" class="nav-item active">
+                <span>✚</span>
+                Staff
+            </a>
+
+            <a href="services.html" class="nav-item">
+                <span>▤</span>
+                Services
+            </a>
+
+            <a href="appointments.html" class="nav-item">
+                <span>▣</span>
+                Appointments
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span>▥</span>
+                Reports
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Staff Availability</h1>
+
+                <p id="staffSubtitle">
+                    Manage staff working days and hours
+                </p>
+            </div>
+
+            <div class="staff-user">
+
+                <div class="avatar">
+                    A
+                </div>
+
+                <div class="staff-user-info">
+
+                    <strong id="adminName">
+                        Admin
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <div class="availability-header">
+
+                <div>
+
+                    <a href="staff.html" class="back-link">
+                        ← Back to Staff
+                    </a>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="addAvailabilityBtn"
+                >
+                    + Add Availability
+                </button>
+
+            </div>
+
+
+            <section class="staff-summary">
+
+                <div
+                    class="staff-avatar"
+                    id="staffAvatar"
+                >
+                    --
+                </div>
+
+                <div class="staff-info">
+
+                    <h2 id="staffName">
+                        Loading...
+                    </h2>
+
+                    <p id="staffEmail">
+                        --
+                    </p>
+
+                </div>
+
+                <div class="staff-meta">
+
+                    <span
+                        class="type-badge"
+                        id="staffType"
+                    >
+                        --
+                    </span>
+
+                    <span
+                        class="status-badge"
+                        id="staffStatus"
+                    >
+                        --
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <section class="schedule-card">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Weekly Working Schedule</h2>
+
+                        <p>
+                            Set the working hours for each day
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="scheduleContainer"
+                    class="schedule-container"
+                >
+
+                    <div class="loading-state">
+
+                        <div class="loader"></div>
+
+                        <p>
+                            Loading availability...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div
+    id="availabilityModal"
+    class="modal-overlay hidden"
+>
+
+    <div class="availability-modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2 id="modalTitle">
+                    Add Availability
+                </h2>
+
+                <p>
+                    Configure working hours for this day.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                class="close-btn"
+                id="closeModalBtn"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form
+            id="availabilityForm"
+            class="availability-form"
+        >
+
+            <input
+                type="hidden"
+                id="availabilityId"
+            >
+
+
+            <div class="form-group">
+
+                <label for="dayOfWeek">
+                    Day
+                </label>
+
+                <select id="dayOfWeek" required>
+
+                    <option value="0">Monday</option>
+                    <option value="1">Tuesday</option>
+                    <option value="2">Wednesday</option>
+                    <option value="3">Thursday</option>
+                    <option value="4">Friday</option>
+                    <option value="5">Saturday</option>
+                    <option value="6">Sunday</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="time-grid">
+
+                <div class="form-group">
+
+                    <label for="startTime">
+                        Start Time
+                    </label>
+
+                    <input
+                        type="time"
+                        id="startTime"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="endTime">
+                        End Time
+                    </label>
+
+                    <input
+                        type="time"
+                        id="endTime"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="availability-toggle">
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="isAvailable"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+                <div>
+
+                    <strong>
+                        Available for appointments
+                    </strong>
+
+                    <p>
+                        Customers can book this staff member during this time.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="modalError"
+                class="modal-error hidden"
+            ></div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="cancelModalBtn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="saveAvailabilityBtn"
+                >
+                    Save Availability
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+
+<script src="../js/staff-availability.js"></script>
+
+</body>
+
+</html>

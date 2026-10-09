@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Appointments | Appointly</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/my-appointments.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="book-appointment.html" class="nav-item">
+                <span>+</span>
+                Book Appointment
+            </a>
+
+            <a href="services.html" class="nav-item">
+                <span>▣</span>
+                Services
+            </a>
+
+            <a href="my-appointments.html" class="nav-item active">
+                <span>◷</span>
+                My Appointments
+            </a>
+
+            <a href="profile.html" class="nav-item">
+                <span>◯</span>
+                Profile
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button id="logout-btn" class="logout-btn">
+                <span>↪</span>
+                Sign out
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>My Appointments</h1>
+
+                <p>
+                    View and manage your appointments
+                </p>
+            </div>
+
+            <div class="staff-user">
+
+                <div class="avatar">
+                    C
+                </div>
+
+                <div class="staff-user-info">
+
+                    <strong>
+                        Customer
+                    </strong>
+
+                    <span>
+                        Customer Portal
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <div class="appointments-header">
+
+                <div>
+                    <p class="eyebrow">Appointments</p>
+
+                    <h1>My Appointments</h1>
+
+                    <p class="appointments-description">
+                        View and manage your appointments
+                    </p>
+                </div>
+
+                <a
+                    href="book-appointment.html"
+                    class="book-new-btn"
+                >
+                    + Book Appointment
+                </a>
+
+            </div>
+
+
+            <div
+                id="appointments-message"
+                class="appointments-message"
+                hidden
+            ></div>
+
+
+            <section class="appointment-filters">
+
+                <button
+                    type="button"
+                    class="filter-btn active"
+                    data-filter="ALL"
+                >
+                    All
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                    data-filter="UPCOMING"
+                >
+                    Upcoming
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                    data-filter="COMPLETED"
+                >
+                    Completed
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                    data-filter="CANCELLED"
+                >
+                    Cancelled
+                </button>
+
+            </section>
+
+
+            <div
+                id="appointments-loading"
+                class="appointments-loading"
+            >
+
+                <div class="loading-spinner"></div>
+
+                <p>
+                    Loading appointments...
+                </p>
+
+            </div>
+
+
+            <section
+                id="appointments-list"
+                class="appointments-list"
+            >
+            </section>
+
+
+            <section
+                id="appointments-empty"
+                class="appointments-empty"
+                hidden
+            >
+
+                <div class="empty-icon">▣</div>
+
+                <h2>No Appointments Found</h2>
+
+                <p>
+                    You don't have any appointments in this category.
+                </p>
+
+                <a
+                    href="book-appointment.html"
+                    class="empty-book-btn"
+                >
+                    Book an Appointment
+                </a>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div
+    id="cancel-modal"
+    class="modal-overlay"
+    hidden
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <h2>Cancel Appointment</h2>
+
+            <button
+                type="button"
+                id="close-cancel-modal"
+                class="modal-close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <p>
+                Are you sure you want to cancel this appointment?
+            </p>
+
+
+            <div class="modal-appointment-info">
+
+                <strong id="cancel-service">—</strong>
+
+                <span id="cancel-date">—</span>
+
+            </div>
+
+
+            <div class="modal-field">
+
+                <label for="cancellation-reason">
+                    Cancellation Reason
+                    <span>*</span>
+                </label>
+
+                <textarea
+                    id="cancellation-reason"
+                    rows="4"
+                    placeholder="Please enter the reason for cancellation..."
+                ></textarea>
+
+            </div>
+
+
+            <div
+                id="cancel-error"
+                class="modal-error"
+                hidden
+            ></div>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                id="cancel-modal-close-btn"
+                class="btn btn-secondary"
+            >
+                Keep Appointment
+            </button>
+
+            <button
+                type="button"
+                id="confirm-cancel-btn"
+                class="btn btn-danger"
+            >
+                Cancel Appointment
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div
+    id="reschedule-modal"
+    class="modal-overlay"
+    hidden
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <h2>Reschedule Appointment</h2>
+
+            <button
+                type="button"
+                id="close-reschedule-modal"
+                class="modal-close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <div class="modal-appointment-info">
+
+                <strong id="reschedule-service">—</strong>
+
+                <span id="reschedule-doctor">—</span>
+
+            </div>
+
+
+            <div class="modal-grid">
+
+                <div class="modal-field">
+
+                    <label for="reschedule-date">
+                        New Date
+                        <span>*</span>
+                    </label>
+
+                    <input type="date" id="reschedule-date">
+
+                </div>
+
+
+                <div class="modal-field">
+
+                    <label for="reschedule-time">
+                        New Start Time
+                        <span>*</span>
+                    </label>
+
+                    <input type="time" id="reschedule-time">
+
+                </div>
+
+            </div>
+
+
+            <p class="modal-help">
+                The new date and time must be within the doctor's working
+                hours and must not overlap another appointment.
+            </p>
+
+
+            <div
+                id="reschedule-error"
+                class="modal-error"
+                hidden
+            ></div>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                id="reschedule-modal-close-btn"
+                class="btn btn-secondary"
+            >
+                Keep Current Time
+            </button>
+
+            <button
+                type="button"
+                id="confirm-reschedule-btn"
+                class="btn btn-primary"
+            >
+                Reschedule
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer class="footer">
+
+    <p>© 2026 Appointly. All rights reserved.</p>
+
+</footer>
+
+
+<script src="../js/my-appointments.js"></script>
+
+</body>
+
+</html>

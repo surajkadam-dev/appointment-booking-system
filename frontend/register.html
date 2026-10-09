@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Customer Account | Appointly</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+    <div class="auth-page">
+
+        <!-- Header -->
+
+        <header class="auth-header">
+
+            <a href="index.html" class="brand">
+
+                <span class="brand-logo" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+
+                <span class="brand-content">
+                    <strong>Appointly</strong>
+                    <small>Appointment Management System</small>
+                </span>
+
+            </a>
+
+            <a href="login.html" class="back-home">
+                ← Back to sign in
+            </a>
+
+        </header>
+
+
+        <!-- Registration -->
+
+        <main class="auth-main">
+
+            <section class="login-container register-container">
+
+                <!-- Left information panel -->
+
+                <div class="login-intro">
+
+                    <span class="auth-label">
+                        CUSTOMER ACCOUNT
+                    </span>
+
+                    <h1>
+                        Start managing your
+                        <span>appointments.</span>
+                    </h1>
+
+                    <p>
+                        Create your customer account to book services,
+                        manage appointments and keep track of your
+                        appointment history.
+                    </p>
+
+                    <div class="intro-points">
+
+                        <div class="intro-point">
+                            <span>01</span>
+                            <p>
+                                Book appointments online
+                            </p>
+                        </div>
+
+                        <div class="intro-point">
+                            <span>02</span>
+                            <p>
+                                Manage your upcoming appointments
+                            </p>
+                        </div>
+
+                        <div class="intro-point">
+                            <span>03</span>
+                            <p>
+                                View your appointment history
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Registration form -->
+
+                <div class="login-card register-card">
+
+                    <div class="login-heading">
+
+                        <span class="form-label">
+                            CREATE ACCOUNT
+                        </span>
+
+                        <h2>
+                            Create your account
+                        </h2>
+
+                        <p>
+                            Enter your details to get started.
+                        </p>
+
+                    </div>
+
+
+                    <form
+                        id="registerForm"
+                        novalidate
+                    >
+
+                        <!-- Name -->
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="firstName">
+                                    First name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    name="first_name"
+                                    placeholder="First name"
+                                    autocomplete="given-name"
+                                    required
+                                >
+
+                                <small
+                                    class="field-error"
+                                    id="firstNameError"
+                                ></small>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="lastName">
+                                    Last name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="last_name"
+                                    placeholder="Last name"
+                                    autocomplete="family-name"
+                                    required
+                                >
+
+                                <small
+                                    class="field-error"
+                                    id="lastNameError"
+                                ></small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Email -->
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                            <small
+                                class="field-error"
+                                id="emailError"
+                            ></small>
+
+                        </div>
+
+
+                        <!-- Phone -->
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter your phone number"
+                                autocomplete="tel"
+                                maxlength="15"
+                                required
+                            >
+
+                            <small
+                                class="field-error"
+                                id="phoneError"
+                            ></small>
+
+                        </div>
+
+
+                        <!-- Date of birth -->
+
+                        <div class="form-group">
+
+                            <label for="dateOfBirth">
+                                Date of birth
+                            </label>
+
+                            <input
+                                type="date"
+                                id="dateOfBirth"
+                                name="date_of_birth"
+                                autocomplete="bday"
+                            >
+
+                            <small
+                                class="field-error"
+                                id="dateOfBirthError"
+                            ></small>
+
+                        </div>
+
+
+                        <!-- Address -->
+
+                        <div class="form-group">
+
+                            <label for="address">
+                                Address
+                                <span class="optional">
+                                    Optional
+                                </span>
+                            </label>
+
+                            <textarea
+                                id="address"
+                                name="address"
+                                placeholder="Enter your address"
+                                rows="3"
+                            ></textarea>
+
+                            <small
+                                class="field-error"
+                                id="addressError"
+                            ></small>
+
+                        </div>
+
+
+                        <!-- Password -->
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="password">
+                                    Password
+                                </label>
+
+                                <div class="password-wrapper">
+
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        placeholder="Create password"
+                                        autocomplete="new-password"
+                                        required
+                                    >
+
+                                    <button
+                                        type="button"
+                                        class="password-toggle"
+                                        data-target="password"
+                                    >
+                                        Show
+                                    </button>
+
+                                </div>
+
+                                <small
+                                    class="field-error"
+                                    id="passwordError"
+                                ></small>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="confirmPassword">
+                                    Confirm password
+                                </label>
+
+                                <div class="password-wrapper">
+
+                                    <input
+                                        type="password"
+                                        id="confirmPassword"
+                                        name="confirm_password"
+                                        placeholder="Confirm password"
+                                        autocomplete="new-password"
+                                        required
+                                    >
+
+                                    <button
+                                        type="button"
+                                        class="password-toggle"
+                                        data-target="confirmPassword"
+                                    >
+                                        Show
+                                    </button>
+
+                                </div>
+
+                                <small
+                                    class="field-error"
+                                    id="confirmPasswordError"
+                                ></small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- API Error -->
+
+                        <div
+                            id="registerError"
+                            class="login-error"
+                            role="alert"
+                        ></div>
+
+
+                        <!-- Submit -->
+
+                        <button
+                            type="submit"
+                            id="registerButton"
+                            class="login-submit"
+                        >
+
+                            <span id="registerButtonText">
+                                Create account
+                            </span>
+
+                            <span
+                                id="registerSpinner"
+                                class="login-spinner"
+                            ></span>
+
+                        </button>
+
+                    </form>
+
+
+                    <div class="login-divider">
+                        <span>Already have an account?</span>
+                    </div>
+
+
+                    <a
+                        href="login.html"
+                        class="create-account"
+                    >
+                        Sign in to your account
+                    </a>
+
+
+                    <p class="login-security">
+                        Customer accounts are created with
+                        customer access automatically.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- Footer -->
+
+        <footer class="auth-footer">
+
+            <span>
+                © 2026 Appointly
+            </span>
+
+            <span>
+                Appointment Management System
+            </span>
+
+        </footer>
+
+    </div>
+
+
+    <script src="js/register.js"></script>
+
+</body>
+
+</html>

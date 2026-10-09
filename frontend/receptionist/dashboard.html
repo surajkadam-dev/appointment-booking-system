@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Receptionist Dashboard</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/receptionist-dashboard.css">
+</head>
+
+<body>
+
+<input type="checkbox" id="navToggle" class="nav-toggle" hidden>
+
+<div class="receptionist-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+            <div class="brand-text">
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item active">
+                <span class="nav-icon">⌂</span>
+                <span class="nav-label">Dashboard</span>
+            </a>
+
+            <a href="appointments.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span class="nav-label">Appointments</span>
+            </a>
+
+            <a href="customers.html" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span class="nav-label">Customers</span>
+            </a>
+
+            <a href="availability.html" class="nav-item">
+                <span class="nav-icon">◷</span>
+                <span class="nav-label">Availability</span>
+            </a>
+
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">◯</span>
+                <span class="nav-label">My Profile</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button id="logoutBtn" class="logout-btn">
+                <span class="nav-icon">↪</span>
+                <span class="nav-label">Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+    <label for="navToggle" class="nav-overlay"></label>
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <label for="navToggle" class="menu-btn">☰</label>
+
+                <div>
+                    <h1 id="welcomeTitle">Welcome</h1>
+                    <p id="staffSubtitle">Receptionist Dashboard</p>
+                </div>
+
+            </div>
+
+            <div class="staff-user">
+
+                <div class="avatar" id="staffAvatar">R</div>
+
+                <div class="staff-user-info">
+                    <strong id="staffName">Receptionist</strong>
+                    <span id="staffType">Receptionist</span>
+                </div>
+
+            </div>
+
+        </header>
+
+        <section class="dashboard-content">
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">▣</div>
+                    <div class="stat-body">
+                        <span>Total Appointments</span>
+                        <strong id="totalAppointments">0</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">◷</div>
+                    <div class="stat-body">
+                        <span>Today's Appointments</span>
+                        <strong id="todayAppointments">0</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">✓</div>
+                    <div class="stat-body">
+                        <span>Completed</span>
+                        <strong id="completedAppointments">0</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon red">×</div>
+                    <div class="stat-body">
+                        <span>Cancelled</span>
+                        <strong id="cancelledAppointments">0</strong>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="content-grid">
+
+                <section class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Today's Appointments</h2>
+                            <p>Appointments scheduled for today</p>
+                        </div>
+
+                        <a href="appointments.html" class="view-all">View All</a>
+
+                    </div>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Doctor</th>
+                                    <th>Service</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="todayAppointmentsBody">
+                                <tr>
+                                    <td colspan="6" class="loading-cell">
+                                        Loading appointments...
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <section class="dashboard-card profile-card">
+
+                    <div class="card-header">
+                        <div>
+                            <h2>My Profile</h2>
+                            <p>Your receptionist information</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-details">
+
+                        <div class="profile-row">
+                            <span>Name</span>
+                            <strong id="profileName">-</strong>
+                        </div>
+
+                        <div class="profile-row">
+                            <span>Email</span>
+                            <strong id="profileEmail">-</strong>
+                        </div>
+
+                        <div class="profile-row">
+                            <span>Staff Type</span>
+                            <strong id="profileStaffType">-</strong>
+                        </div>
+
+                        <div class="profile-row">
+                            <span>Department</span>
+                            <strong id="profileDepartment">-</strong>
+                        </div>
+
+                        <div class="profile-row">
+                            <span>Designation</span>
+                            <strong id="profileDesignation">-</strong>
+                        </div>
+
+                        <div class="profile-row">
+                            <span>Status</span>
+                            <span id="profileStatus" class="status-badge active">
+                                Active
+                            </span>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="../js/main.js"></script>
+<script src="../js/receptionist-dashboard.js"></script>
+
+</body>
+</html>

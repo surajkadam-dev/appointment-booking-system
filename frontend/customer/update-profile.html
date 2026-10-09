@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Update Profile | Appointly</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/update-profile.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="book-appointment.html" class="nav-item">
+                <span>+</span>
+                Book Appointment
+            </a>
+
+            <a href="services.html" class="nav-item">
+                <span>▣</span>
+                Services
+            </a>
+
+            <a href="my-appointments.html" class="nav-item">
+                <span>◷</span>
+                My Appointments
+            </a>
+
+            <a href="profile.html" class="nav-item active">
+                <span>◯</span>
+                Profile
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button id="logout-btn" class="logout-btn">
+                <span>↪</span>
+                Sign out
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Update Profile</h1>
+
+                <p>
+                    Update your personal and contact information
+                </p>
+            </div>
+
+            <div class="staff-user">
+
+                <div class="avatar">
+                    C
+                </div>
+
+                <div class="staff-user-info">
+
+                    <strong>
+                        Customer
+                    </strong>
+
+                    <span>
+                        Customer Portal
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <div class="page-heading">
+
+                <div>
+
+                    <a
+                        href="profile.html"
+                        class="back-link"
+                    >
+                        ← Back to Profile
+                    </a>
+
+                    <p class="eyebrow">Account Settings</p>
+
+                    <h1>Update Profile</h1>
+
+                    <p>
+                        Update your personal and contact information
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="update-message"
+                class="update-message hidden"
+            ></div>
+
+
+            <section class="update-card">
+
+                <form id="update-profile-form">
+
+                    <div class="form-section">
+
+                        <h2>Personal Information</h2>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="first-name">
+                                    First Name
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="first-name"
+                                    name="first_name"
+                                    maxlength="100"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="last-name">
+                                    Last Name
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="last-name"
+                                    name="last_name"
+                                    maxlength="100"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="email">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    readonly
+                                >
+
+                                <small>
+                                    Email address cannot be changed.
+                                </small>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="phone">
+                                    Phone Number
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    maxlength="15"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="date-of-birth">
+                                    Date of Birth
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="date-of-birth"
+                                    name="date_of_birth"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-section">
+
+                        <h2>Address</h2>
+
+                        <div class="form-group">
+
+                            <label for="address">
+                                Address
+                            </label>
+
+                            <textarea
+                                id="address"
+                                name="address"
+                                rows="4"
+                                maxlength="500"
+                                placeholder="Enter your address"
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <a
+                            href="profile.html"
+                            class="btn btn-secondary"
+                        >
+                            Cancel
+                        </a>
+
+                        <button
+                            type="submit"
+                            id="save-profile-btn"
+                            class="btn btn-primary"
+                        >
+                            Save Changes
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<footer class="footer">
+
+    <p>© 2026 Appointly. All rights reserved.</p>
+
+</footer>
+
+
+<script src="../js/update-profile.js"></script>
+
+</body>
+
+</html>

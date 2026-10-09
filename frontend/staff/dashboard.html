@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Dashboard | Appointly</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/staff-dashboard.css">
+</head>
+
+<body>
+
+<div class="staff-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="appointments.html" class="nav-item">
+                <span>▣</span>
+                My Appointments
+            </a>
+
+            <a href="availability.html" class="nav-item">
+                <span>◷</span>
+                Availability
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button id="logoutBtn" class="logout-btn">
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1 id="welcomeTitle">Welcome</h1>
+
+                <p id="staffSubtitle">Staff Dashboard</p>
+            </div>
+
+            <div class="staff-user">
+
+                <div class="avatar" id="staffAvatar">
+                    S
+                </div>
+
+                <div class="staff-user-info">
+
+                    <strong id="staffName">
+                        Staff
+                    </strong>
+
+                    <span id="staffType">
+                        Staff
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ▣
+                    </div>
+
+                    <div>
+                        <span>Total Appointments</span>
+
+                        <strong id="totalAppointments">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ◷
+                    </div>
+
+                    <div>
+                        <span>Today's Appointments</span>
+
+                        <strong id="todayAppointments">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>Completed</span>
+
+                        <strong id="completedAppointments">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon red">
+                        ×
+                    </div>
+
+                    <div>
+                        <span>Cancelled</span>
+
+                        <strong id="cancelledAppointments">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content-grid">
+
+                <section class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Today's Appointments</h2>
+
+                            <p>
+                                Your appointments scheduled for today
+                            </p>
+                        </div>
+
+                        <a
+                            href="appointments.html"
+                            class="view-all"
+                        >
+                            View All
+                        </a>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Service</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="todayAppointmentsBody">
+
+                                <tr>
+                                    <td
+                                        colspan="5"
+                                        class="loading-cell"
+                                    >
+                                        Loading appointments...
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <section class="dashboard-card profile-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>My Profile</h2>
+
+                            <p>Your staff information</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-details">
+
+                        <div class="profile-row">
+                            <span>Name</span>
+                            <strong id="profileName">-</strong>
+                        </div>
+
+                        <div class="profile-row">
+                            <span>Email</span>
+                            <strong id="profileEmail">-</strong>
+                        </div>
+
+                        <div class="profile-row">
+                            <span>Staff Type</span>
+                            <strong id="profileStaffType">-</strong>
+                        </div>
+
+                        <div class="profile-row">
+                            <span>Department</span>
+                            <strong id="profileDepartment">-</strong>
+                        </div>
+
+                        <div class="profile-row">
+                            <span>Designation</span>
+                            <strong id="profileDesignation">-</strong>
+                        </div>
+
+                        <div class="profile-row">
+                            <span>Status</span>
+
+                            <span
+                                id="profileStatus"
+                                class="status-badge active"
+                            >
+                                Active
+                            </span>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+
+<script src="../js/main.js"></script>
+<script src="../js/staff-dashboard.js"></script>
+
+</body>
+
+</html>

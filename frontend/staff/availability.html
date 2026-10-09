@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Availability | Appointly</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/doctor-staff-availability.css">
+</head>
+
+<body>
+
+<div class="staff-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="appointments.html" class="nav-item">
+                <span>▣</span>
+                My Appointments
+            </a>
+
+            <a href="availability.html" class="nav-item active">
+                <span>◷</span>
+                My Availability
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>My Availability</h1>
+
+                <p>
+                    Manage your working schedule and available time slots
+                </p>
+            </div>
+
+            <div class="staff-user">
+
+                <div
+                    class="avatar"
+                    id="userAvatar"
+                >
+                    D
+                </div>
+
+                <div class="staff-user-info">
+
+                    <strong id="userName">
+                        Doctor
+                    </strong>
+
+                    <span id="userRole">
+                        Doctor
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <div class="page-header">
+
+                <div>
+                    <p class="eyebrow">Weekly Schedule</p>
+
+                    <h2>Availability Schedule</h2>
+
+                    <p>
+                        Set the days and times when you are available for appointments.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    id="addScheduleBtn"
+                    class="primary-btn"
+                >
+                    + Add Schedule
+                </button>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📅
+                    </div>
+
+                    <div>
+                        <span>Total Schedules</span>
+                        <strong id="totalSchedules">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>Active</span>
+                        <strong id="activeSchedules">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⏸
+                    </div>
+
+                    <div>
+                        <span>Inactive</span>
+                        <strong id="inactiveSchedules">0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="filter-card">
+
+                <div class="filter-group">
+
+                    <label for="dayFilter">
+                        Day
+                    </label>
+
+                    <select id="dayFilter">
+
+                        <option value="">All Days</option>
+                        <option value="0">Monday</option>
+                        <option value="1">Tuesday</option>
+                        <option value="2">Wednesday</option>
+                        <option value="3">Thursday</option>
+                        <option value="4">Friday</option>
+                        <option value="5">Saturday</option>
+                        <option value="6">Sunday</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="statusFilter">
+                        Status
+                    </label>
+
+                    <select id="statusFilter">
+
+                        <option value="">All Status</option>
+                        <option value="true">Active</option>
+                        <option value="false">Inactive</option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="clearFiltersBtn"
+                    class="secondary-btn"
+                >
+                    Clear Filters
+                </button>
+
+            </div>
+
+
+            <div class="table-card">
+
+                <div class="table-header">
+
+                    <div>
+                        <h3>My Schedule</h3>
+
+                        <p>
+                            Manage your available appointment hours.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Duration</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="availabilityTableBody">
+
+                            <tr>
+                                <td colspan="6" class="loading-cell">
+                                    Loading availability...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div id="emptyState" class="empty-state hidden">
+
+                    <div class="empty-icon">
+                        📅
+                    </div>
+
+                    <h3>No Availability Found</h3>
+
+                    <p>
+                        You haven't added any availability schedule yet.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="emptyAddBtn"
+                        class="primary-btn"
+                    >
+                        + Add Schedule
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div id="scheduleModal" class="modal-overlay hidden">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2 id="modalTitle">Add Schedule</h2>
+
+                <p>Set your available working hours.</p>
+            </div>
+
+            <button
+                type="button"
+                id="closeModalBtn"
+                class="close-btn"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="scheduleForm">
+
+            <div class="form-group">
+
+                <label for="dayOfWeek">
+                    Day <span>*</span>
+                </label>
+
+                <select id="dayOfWeek" required>
+
+                    <option value="">Select Day</option>
+                    <option value="0">Monday</option>
+                    <option value="1">Tuesday</option>
+                    <option value="2">Wednesday</option>
+                    <option value="3">Thursday</option>
+                    <option value="4">Friday</option>
+                    <option value="5">Saturday</option>
+                    <option value="6">Sunday</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="time-row">
+
+                <div class="form-group">
+
+                    <label for="startTime">
+                        Start Time <span>*</span>
+                    </label>
+
+                    <input
+                        type="time"
+                        id="startTime"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="endTime">
+                        End Time <span>*</span>
+                    </label>
+
+                    <input
+                        type="time"
+                        id="endTime"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label class="toggle-label">
+
+                    <input
+                        type="checkbox"
+                        id="isAvailable"
+                        checked
+                    >
+
+                    <span class="toggle-switch"></span>
+
+                    <span>Available for appointments</span>
+
+                </label>
+
+            </div>
+
+
+            <div id="formError" class="form-error hidden"></div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    id="cancelModalBtn"
+                    class="secondary-btn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    id="saveScheduleBtn"
+                    class="primary-btn"
+                >
+                    Save Schedule
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div id="deleteModal" class="modal-overlay hidden">
+
+    <div class="modal small-modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>Delete Schedule</h2>
+
+                <p>Are you sure you want to delete this schedule?</p>
+            </div>
+
+            <button
+                type="button"
+                id="closeDeleteBtn"
+                class="close-btn"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="delete-warning">
+
+            <strong>This action cannot be undone.</strong>
+
+            <p>
+                The selected availability schedule will be permanently removed.
+            </p>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                id="cancelDeleteBtn"
+                class="secondary-btn"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                id="confirmDeleteBtn"
+                class="danger-btn"
+            >
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="toast" class="toast">
+    <span id="toastMessage"></span>
+</div>
+
+
+<script src="../js/doctor-staff-availability.js"></script>
+
+</body>
+
+</html>

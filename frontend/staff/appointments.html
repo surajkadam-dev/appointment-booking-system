@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Appointments | Appointly</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/staff-appointments.css">
+</head>
+
+<body>
+
+<div class="staff-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="appointments.html" class="nav-item active">
+                <span>▣</span>
+                My Appointments
+            </a>
+
+            <a
+                href="customers.html"
+                class="nav-item receptionist-only"
+                id="customersNav"
+            >
+                <span>♙</span>
+                Customers
+            </a>
+
+            <a href="availability.html" class="nav-item">
+                <span>◷</span>
+                Availability
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>My Appointments</h1>
+
+                <p id="staffSubtitle">
+                    Manage your assigned appointments
+                </p>
+            </div>
+
+            <div class="staff-user">
+
+                <div class="avatar" id="staffAvatar">
+                    S
+                </div>
+
+                <div class="staff-user-info">
+
+                    <strong id="staffName">
+                        Staff
+                    </strong>
+
+                    <span id="staffType">
+                        Staff
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">▣</div>
+
+                    <div>
+                        <span>Total</span>
+                        <strong id="totalCount">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">◷</div>
+
+                    <div>
+                        <span>Scheduled</span>
+                        <strong id="scheduledCount">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">✓</div>
+
+                    <div>
+                        <span>Completed</span>
+                        <strong id="completedCount">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon red">×</div>
+
+                    <div>
+                        <span>Cancelled</span>
+                        <strong id="cancelledCount">0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="filter-card">
+
+                <div class="filter-row">
+
+                    <div class="filter-group search-group">
+
+                        <label for="searchInput">
+                            Search
+                        </label>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search customer or service..."
+                        >
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label for="statusFilter">
+                            Status
+                        </label>
+
+                        <select id="statusFilter">
+
+                            <option value="">
+                                All Status
+                            </option>
+
+                            <option value="SCHEDULED">
+                                Scheduled
+                            </option>
+
+                            <option value="RESCHEDULED">
+                                Rescheduled
+                            </option>
+
+                            <option value="COMPLETED">
+                                Completed
+                            </option>
+
+                            <option value="CANCELLED">
+                                Cancelled
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label for="dateFilter">
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="dateFilter"
+                        >
+
+                    </div>
+
+
+                    <div class="filter-actions">
+
+                        <button
+                            type="button"
+                            id="clearFiltersBtn"
+                            class="btn btn-secondary"
+                        >
+                            Clear
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-card">
+
+                <div class="table-header">
+
+                    <div>
+                        <h2>Appointments</h2>
+
+                        <p>
+                            Appointments assigned to you
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        id="bookAppointmentBtn"
+                        class="btn btn-primary receptionist-only"
+                    >
+                        + Book Appointment
+                    </button>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Service</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="appointmentsBody">
+
+                            <tr>
+                                <td
+                                    colspan="6"
+                                    class="loading-cell"
+                                >
+                                    Loading appointments...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="pagination">
+
+                    <button
+                        type="button"
+                        id="previousBtn"
+                        class="pagination-btn"
+                    >
+                        Previous
+                    </button>
+
+                    <span id="pageInfo">
+                        Page 1
+                    </span>
+
+                    <button
+                        type="button"
+                        id="nextBtn"
+                        class="pagination-btn"
+                    >
+                        Next
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div class="modal-overlay" id="viewModal">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>Appointment Details</h2>
+
+                <p>View appointment information</p>
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                data-close="viewModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <div class="detail-grid">
+
+                <div class="detail-item">
+                    <span>Customer</span>
+                    <strong id="viewCustomer">-</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Service</span>
+                    <strong id="viewService">-</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Staff</span>
+                    <strong id="viewStaff">-</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Date</span>
+                    <strong id="viewDate">-</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Start Time</span>
+                    <strong id="viewStartTime">-</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>End Time</span>
+                    <strong id="viewEndTime">-</strong>
+                </div>
+
+                <div class="detail-item">
+                    <span>Status</span>
+                    <strong id="viewStatus">-</strong>
+                </div>
+
+                <div class="detail-item full-width">
+                    <span>Reason</span>
+                    <strong id="viewReason">-</strong>
+                </div>
+
+                <div
+                    class="detail-item full-width"
+                    id="viewCancellationWrapper"
+                >
+                    <span>Cancellation Reason</span>
+                    <strong id="viewCancellationReason">-</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="btn btn-secondary"
+                data-close="viewModal"
+            >
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="modal-overlay" id="cancelModal">
+
+    <div class="modal small-modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>Cancel Appointment</h2>
+
+                <p>Please provide a cancellation reason.</p>
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                data-close="cancelModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="cancelForm">
+
+            <div class="modal-body">
+
+                <input
+                    type="hidden"
+                    id="cancelAppointmentId"
+                >
+
+                <div class="form-group">
+
+                    <label for="cancellationReason">
+                        Cancellation Reason
+                        <span>*</span>
+                    </label>
+
+                    <textarea
+                        id="cancellationReason"
+                        rows="4"
+                        placeholder="Enter cancellation reason..."
+                        required
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-close="cancelModal"
+                >
+                    Close
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-danger"
+                >
+                    Cancel Appointment
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div class="modal-overlay" id="rescheduleModal">
+
+    <div class="modal small-modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>Reschedule Appointment</h2>
+
+                <p>Select a new date and start time.</p>
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                data-close="rescheduleModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="rescheduleForm">
+
+            <div class="modal-body">
+
+                <input
+                    type="hidden"
+                    id="rescheduleAppointmentId"
+                >
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="rescheduleDate">
+                            New Date
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="date"
+                            id="rescheduleDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="rescheduleTime">
+                            New Start Time
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="time"
+                            id="rescheduleTime"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="form-message"
+                    id="rescheduleMessage"
+                ></div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-close="rescheduleModal"
+                >
+                    Close
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Reschedule
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div class="modal-overlay" id="bookingModal">
+
+    <div class="modal large-modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>Book Appointment</h2>
+
+                <p>Create an appointment for a customer.</p>
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                data-close="bookingModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="bookingForm">
+
+            <div class="modal-body">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="bookingCustomer">
+                            Customer
+                            <span>*</span>
+                        </label>
+
+                        <select
+                            id="bookingCustomer"
+                            required
+                        >
+                            <option value="">Select customer</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="bookingService">
+                            Service
+                            <span>*</span>
+                        </label>
+
+                        <select
+                            id="bookingService"
+                            required
+                        >
+                            <option value="">Select service</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="bookingDate">
+                            Appointment Date
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="date"
+                            id="bookingDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="bookingTime">
+                            Start Time
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="time"
+                            id="bookingTime"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="bookingReason">
+                        Reason
+                    </label>
+
+                    <textarea
+                        id="bookingReason"
+                        rows="4"
+                        placeholder="Enter appointment reason..."
+                    ></textarea>
+
+                </div>
+
+
+                <div
+                    class="form-message"
+                    id="bookingMessage"
+                ></div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-close="bookingModal"
+                >
+                    Close
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Book Appointment
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div class="modal-overlay" id="completeModal">
+
+    <div class="modal small-modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>Complete Appointment</h2>
+
+                <p>Mark this appointment as completed?</p>
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                data-close="completeModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <input
+                type="hidden"
+                id="completeAppointmentId"
+            >
+
+            <p class="confirmation-text">
+                This action will mark the appointment as
+                <strong>Completed</strong>.
+            </p>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="btn btn-secondary"
+                data-close="completeModal"
+            >
+                Close
+            </button>
+
+            <button
+                type="button"
+                id="confirmCompleteBtn"
+                class="btn btn-success"
+            >
+                Complete Appointment
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+
+<script src="../js/main.js"></script>
+<script src="../js/staff-appointments.js"></script>
+
+</body>
+
+</html>

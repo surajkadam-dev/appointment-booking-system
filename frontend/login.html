@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign In — Appointly</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+    <div class="auth-page">
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <header class="auth-header">
+
+            <a href="index.html" class="brand">
+
+                <span class="brand-logo" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+
+                <span class="brand-content">
+                    <strong>Appointly</strong>
+                    <small>Appointment Management System</small>
+                </span>
+
+            </a>
+
+            <a href="index.html" class="back-home">
+                ← Back to home
+            </a>
+
+        </header>
+
+
+        <!-- =========================
+             LOGIN CONTENT
+        ========================== -->
+
+        <main class="auth-main">
+
+            <section class="login-container">
+
+                <!-- Left information panel -->
+
+                <div class="login-intro">
+
+                    <span class="auth-label">
+                        APPOINTMENT MANAGEMENT
+                    </span>
+
+                    <h1>
+                        Manage your
+                        <span>appointments</span>
+                        with ease.
+                    </h1>
+
+                    <p>
+                        Sign in to access your appointments,
+                        schedules and account.
+                    </p>
+
+                    <div class="login-intro-line"></div>
+
+                    <p class="role-note">
+                        One secure sign-in for customers,
+                        staff and administrators.
+                    </p>
+
+                </div>
+
+
+                <!-- Login form -->
+
+                <div class="login-card">
+
+                    <div class="login-heading">
+
+                        <h2>Welcome back</h2>
+
+                        <p>
+                            Sign in to continue to Appointly.
+                        </p>
+
+                    </div>
+
+
+                    <form id="loginForm" novalidate>
+
+                        <!-- Email -->
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required
+                            >
+
+                            <small
+                                class="field-error"
+                                id="emailError"
+                            ></small>
+
+                        </div>
+
+
+                        <!-- Password -->
+
+                        <div class="form-group">
+
+                            <div class="password-label">
+
+                                <label for="password">
+                                    Password
+                                </label>
+
+                            </div>
+
+                            <div class="password-wrapper">
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    placeholder="Enter your password"
+                                    autocomplete="current-password"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    id="passwordToggle"
+                                    aria-label="Show password"
+                                >
+                                    Show
+                                </button>
+
+                            </div>
+
+                            <small
+                                class="field-error"
+                                id="passwordError"
+                            ></small>
+
+                        </div>
+
+
+                        <!-- Remember -->
+
+                        <div class="login-options">
+
+                            <label class="remember-option">
+
+                                <input
+                                    type="checkbox"
+                                    id="rememberMe"
+                                >
+
+                                <span>
+                                    Remember me
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- API error -->
+
+                        <div
+                            class="login-error"
+                            id="loginError"
+                            role="alert"
+                        ></div>
+
+
+                        <!-- Submit -->
+
+                        <button
+                            type="submit"
+                            class="login-submit"
+                            id="loginButton"
+                        >
+                            <span id="loginButtonText">
+                                Sign in
+                            </span>
+
+                            <span
+                                class="login-spinner"
+                                id="loginSpinner"
+                            ></span>
+                        </button>
+
+                    </form>
+
+
+                    <div class="login-divider">
+                        <span>New to Appointly?</span>
+                    </div>
+
+
+                    <a
+                        href="register.html"
+                        class="create-account"
+                    >
+                        Create a customer account
+                    </a>
+
+
+                    <p class="login-security">
+                        Your account is protected by secure
+                        JWT authentication.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <footer class="auth-footer">
+
+            <span>
+                © 2026 Appointly
+            </span>
+
+            <span>
+                Appointment Management System
+            </span>
+
+        </footer>
+
+    </div>
+
+
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | Appointly</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="book-appointment.html" class="nav-item">
+                <span>+</span>
+                Book Appointment
+            </a>
+
+            <a href="services.html" class="nav-item">
+                <span>▣</span>
+                Services
+            </a>
+
+            <a href="my-appointments.html" class="nav-item">
+                <span>◷</span>
+                My Appointments
+            </a>
+
+            <a href="profile.html" class="nav-item active">
+                <span>◯</span>
+                Profile
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button id="logout-btn" class="logout-btn">
+                <span>↪</span>
+                Sign out
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>My Profile</h1>
+
+                <p>
+                    View and manage your personal information
+                </p>
+            </div>
+
+            <div class="staff-user">
+
+                <div class="avatar" id="topbar-avatar">
+                    C
+                </div>
+
+                <div class="staff-user-info">
+
+                    <strong id="topbar-name">
+                        Customer
+                    </strong>
+
+                    <span>
+                        Customer Portal
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <div class="page-heading">
+
+                <div>
+                    <p class="eyebrow">Account</p>
+
+                    <h1>My Profile</h1>
+
+                    <p>
+                        View and manage your personal information
+                    </p>
+                </div>
+
+                <a
+                    href="update-profile.html"
+                    class="btn btn-primary"
+                >
+                    Edit Profile
+                </a>
+
+            </div>
+
+
+            <div
+                id="profile-message"
+                class="profile-message hidden"
+            ></div>
+
+
+            <section class="profile-card">
+
+                <div class="profile-card-header">
+
+                    <div class="profile-avatar" id="profile-avatar">
+                        R
+                    </div>
+
+                    <div>
+                        <h2 id="profile-name">
+                            Loading...
+                        </h2>
+
+                        <p id="profile-email">
+                            Loading...
+                        </p>
+
+                        <span class="role-badge">
+                            Customer
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="profile-section">
+
+                    <h3>Personal Information</h3>
+
+                    <div class="profile-grid">
+
+                        <div class="profile-field">
+                            <span class="field-label">
+                                First Name
+                            </span>
+
+                            <span
+                                class="field-value"
+                                id="first-name"
+                            >
+                                -
+                            </span>
+                        </div>
+
+
+                        <div class="profile-field">
+                            <span class="field-label">
+                                Last Name
+                            </span>
+
+                            <span
+                                class="field-value"
+                                id="last-name"
+                            >
+                                -
+                            </span>
+                        </div>
+
+
+                        <div class="profile-field">
+                            <span class="field-label">
+                                Email Address
+                            </span>
+
+                            <span
+                                class="field-value"
+                                id="email"
+                            >
+                                -
+                            </span>
+                        </div>
+
+
+                        <div class="profile-field">
+                            <span class="field-label">
+                                Phone Number
+                            </span>
+
+                            <span
+                                class="field-value"
+                                id="phone"
+                            >
+                                -
+                            </span>
+                        </div>
+
+
+                        <div class="profile-field">
+                            <span class="field-label">
+                                Date of Birth
+                            </span>
+
+                            <span
+                                class="field-value"
+                                id="date-of-birth"
+                            >
+                                -
+                            </span>
+                        </div>
+
+
+                        <div class="profile-field">
+                            <span class="field-label">
+                                Account Status
+                            </span>
+
+                            <span
+                                class="field-value status-active"
+                                id="account-status"
+                            >
+                                Active
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-section">
+
+                    <h3>Address</h3>
+
+                    <div class="address-box">
+                        <span id="address">
+                            -
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="profile-section">
+
+                    <h3>Account Information</h3>
+
+                    <div class="profile-grid">
+
+                        <div class="profile-field">
+
+                            <span class="field-label">
+                                Customer ID
+                            </span>
+
+                            <span
+                                class="field-value"
+                                id="customer-id"
+                            >
+                                -
+                            </span>
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <span class="field-label">
+                                Member Since
+                            </span>
+
+                            <span
+                                class="field-value"
+                                id="created-at"
+                            >
+                                -
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<footer class="footer">
+
+    <p>© 2026 Appointly. All rights reserved.</p>
+
+</footer>
+
+
+<script src="../js/profile.js"></script>
+
+</body>
+
+</html>

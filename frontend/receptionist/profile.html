@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile - Receptionist</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/receptionist-profile.css">
+</head>
+
+<body>
+
+<div class="receptionist-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="appointments.html" class="nav-item">
+                <span>▣</span>
+                Appointments
+            </a>
+
+            <a href="customers.html" class="nav-item">
+                <span>♙</span>
+                Customers
+            </a>
+
+            <a href="availability.html" class="nav-item">
+                <span>◷</span>
+                Availability
+            </a>
+
+            <a href="profile.html" class="nav-item active">
+                <span>◯</span>
+                My Profile
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>My Profile</h1>
+
+                <p>
+                    View your receptionist account information
+                </p>
+            </div>
+
+            <div class="staff-user">
+
+                <div class="avatar" id="topbarAvatar">
+                    R
+                </div>
+
+                <div class="staff-user-info">
+
+                    <strong id="topbarName">
+                        Receptionist
+                    </strong>
+
+                    <span>
+                        Receptionist
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+
+            <div id="loadingState" class="loading-state">
+
+                <div class="spinner"></div>
+
+                <p>
+                    Loading profile...
+                </p>
+
+            </div>
+
+
+            <div id="errorState" class="error-state hidden">
+
+                <div class="error-icon">
+                    !
+                </div>
+
+                <h3>
+                    Unable to load profile
+                </h3>
+
+                <p id="errorMessage">
+                    Something went wrong.
+                </p>
+
+                <button
+                    type="button"
+                    id="retryBtn"
+                    class="retry-btn"
+                >
+                    Try Again
+                </button>
+
+            </div>
+
+
+            <div id="profileContent" class="profile-content hidden">
+
+
+                <div class="profile-header-card">
+
+                    <div
+                        class="large-avatar"
+                        id="profileAvatar"
+                    >
+                        R
+                    </div>
+
+
+                    <div class="profile-header-info">
+
+                        <h2 id="profileName">
+                            Receptionist
+                        </h2>
+
+                        <p id="profileEmail">
+                            receptionist@example.com
+                        </p>
+
+                        <span class="role-badge">
+                            Receptionist
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-grid">
+
+
+                    <div class="profile-card">
+
+                        <div class="card-header">
+
+                            <div class="card-icon">
+                                👤
+                            </div>
+
+                            <div>
+                                <h3>
+                                    Personal Information
+                                </h3>
+
+                                <p>
+                                    Your basic account information
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-list">
+
+                            <div class="info-row">
+
+                                <span class="info-label">
+                                    First Name
+                                </span>
+
+                                <span
+                                    class="info-value"
+                                    id="firstName"
+                                >
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span class="info-label">
+                                    Last Name
+                                </span>
+
+                                <span
+                                    class="info-value"
+                                    id="lastName"
+                                >
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span class="info-label">
+                                    Email Address
+                                </span>
+
+                                <span
+                                    class="info-value"
+                                    id="email"
+                                >
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span class="info-label">
+                                    Phone
+                                </span>
+
+                                <span
+                                    class="info-value"
+                                    id="phone"
+                                >
+                                    -
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-card">
+
+                        <div class="card-header">
+
+                            <div class="card-icon">
+                                💼
+                            </div>
+
+                            <div>
+                                <h3>
+                                    Staff Information
+                                </h3>
+
+                                <p>
+                                    Your role and work information
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-list">
+
+                            <div class="info-row">
+
+                                <span class="info-label">
+                                    Staff Type
+                                </span>
+
+                                <span
+                                    class="info-value"
+                                    id="staffType"
+                                >
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span class="info-label">
+                                    Designation
+                                </span>
+
+                                <span
+                                    class="info-value"
+                                    id="designation"
+                                >
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span class="info-label">
+                                    Department
+                                </span>
+
+                                <span
+                                    class="info-value"
+                                    id="department"
+                                >
+                                    -
+                                </span>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span class="info-label">
+                                    Account Status
+                                </span>
+
+                                <span
+                                    class="status-badge active"
+                                    id="accountStatus"
+                                >
+                                    Active
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="profile-notice">
+
+                    <div class="notice-icon">
+                        🔒
+                    </div>
+
+                    <div>
+                        <h3>
+                            Profile information is managed by Admin
+                        </h3>
+
+                        <p>
+                            Your staff account and profile details
+                            are created and managed by the system
+                            administrator. Contact the administrator
+                            if any information needs to be changed.
+                        </p>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="../js/receptionist-profile.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Appointment | Appointly</title>
+
+    <link rel="stylesheet" href="../css/book-appointment.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="book-appointment.html" class="nav-item active">
+                <span>+</span>
+                Book Appointment
+            </a>
+
+            <a href="services.html" class="nav-item">
+                <span>▣</span>
+                Services
+            </a>
+
+            <a href="my-appointments.html" class="nav-item">
+                <span>◷</span>
+                My Appointments
+            </a>
+
+            <a href="profile.html" class="nav-item">
+                <span>◯</span>
+                Profile
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button id="logout-btn" class="logout-btn">
+                <span>↪</span>
+                Sign out
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Book Appointment</h1>
+
+                <p>
+                    Select a service, doctor, date and available time
+                </p>
+            </div>
+
+            <div class="staff-user">
+
+                <div class="avatar">
+                    C
+                </div>
+
+                <div class="staff-user-info">
+
+                    <strong>
+                        Customer
+                    </strong>
+
+                    <span>
+                        Customer Portal
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <section class="booking-card">
+
+                <div class="booking-progress">
+
+                    <div class="progress-step active">
+                        <span class="step-number">1</span>
+                        <span class="step-label">Service</span>
+                    </div>
+
+                    <div class="progress-line"></div>
+
+                    <div class="progress-step">
+                        <span class="step-number">2</span>
+                        <span class="step-label">Doctor</span>
+                    </div>
+
+                    <div class="progress-line"></div>
+
+                    <div class="progress-step">
+                        <span class="step-number">3</span>
+                        <span class="step-label">Date & Time</span>
+                    </div>
+
+                    <div class="progress-line"></div>
+
+                    <div class="progress-step">
+                        <span class="step-number">4</span>
+                        <span class="step-label">Details</span>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="booking-message"
+                    class="booking-message"
+                    hidden
+                ></div>
+
+
+                <form id="booking-form" novalidate>
+
+                    <div class="form-section">
+
+                        <div class="section-heading">
+
+                            <div class="section-icon">1</div>
+
+                            <div>
+                                <h2>Select Service</h2>
+
+                                <p>Choose the service you need.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="service">
+                                Service
+                                <span class="required">*</span>
+                            </label>
+
+                            <select
+                                id="service"
+                                name="service"
+                                required
+                            >
+                                <option value="">
+                                    Loading services...
+                                </option>
+                            </select>
+
+                            <small class="field-help">
+                                Only active services are shown.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-section">
+
+                        <div class="section-heading">
+
+                            <div class="section-icon">2</div>
+
+                            <div>
+                                <h2>Select Doctor</h2>
+
+                                <p>
+                                    Choose an available doctor for the selected service.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="staff">
+                                Doctor
+                                <span class="required">*</span>
+                            </label>
+
+                            <select
+                                id="staff"
+                                name="staff"
+                                required
+                                disabled
+                            >
+                                <option value="">
+                                    Select a service first
+                                </option>
+                            </select>
+
+                            <small
+                                id="doctor-help"
+                                class="field-help"
+                            >
+                                Doctors will appear after selecting a service.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-section">
+
+                        <div class="section-heading">
+
+                            <div class="section-icon">3</div>
+
+                            <div>
+                                <h2>Date & Time</h2>
+
+                                <p>
+                                    Select a date and an available appointment time.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="appointment-date">
+                                    Appointment Date
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="appointment-date"
+                                    name="appointment_date"
+                                    required
+                                    disabled
+                                >
+
+                                <small class="field-help">
+                                    Past dates cannot be selected.
+                                </small>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="appointment-time">
+                                    Start Time
+                                    <span class="required">*</span>
+                                </label>
+
+                                <select
+                                    id="appointment-time"
+                                    name="start_time"
+                                    required
+                                    disabled
+                                >
+                                    <option value="">
+                                        Select doctor and date first
+                                    </option>
+                                </select>
+
+                                <small
+                                    id="time-help"
+                                    class="field-help"
+                                >
+                                    Available time slots will appear after selecting a date.
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="working-hours-info"
+                            class="availability-info"
+                            hidden
+                        >
+
+                            <div class="availability-info-icon">⏰</div>
+
+                            <div>
+
+                                <strong>Working Hours</strong>
+
+                                <p id="working-hours-text">-</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-section">
+
+                        <div class="section-heading">
+
+                            <div class="section-icon">4</div>
+
+                            <div>
+                                <h2>Appointment Details</h2>
+
+                                <p>
+                                    Tell us briefly about your appointment.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="reason">
+                                Reason for Appointment
+                            </label>
+
+                            <textarea
+                                id="reason"
+                                name="reason"
+                                rows="4"
+                                maxlength="1000"
+                                placeholder="Briefly describe the reason for your appointment..."
+                            ></textarea>
+
+                            <small class="field-help">
+                                Optional. Maximum 1000 characters.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-section summary-section">
+
+                        <div class="section-heading">
+
+                            <div class="section-icon">✓</div>
+
+                            <div>
+                                <h2>Appointment Summary</h2>
+
+                                <p>
+                                    Review your appointment before booking.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="appointment-summary">
+
+                            <div class="summary-row">
+
+                                <span class="summary-label">Service</span>
+
+                                <span
+                                    id="summary-service"
+                                    class="summary-value"
+                                >
+                                    —
+                                </span>
+
+                            </div>
+
+
+                            <div class="summary-row">
+
+                                <span class="summary-label">Doctor</span>
+
+                                <span
+                                    id="summary-doctor"
+                                    class="summary-value"
+                                >
+                                    —
+                                </span>
+
+                            </div>
+
+
+                            <div class="summary-row">
+
+                                <span class="summary-label">Date</span>
+
+                                <span
+                                    id="summary-date"
+                                    class="summary-value"
+                                >
+                                    —
+                                </span>
+
+                            </div>
+
+
+                            <div class="summary-row">
+
+                                <span class="summary-label">Start Time</span>
+
+                                <span
+                                    id="summary-time"
+                                    class="summary-value"
+                                >
+                                    —
+                                </span>
+
+                            </div>
+
+
+                            <div class="summary-row">
+
+                                <span class="summary-label">Duration</span>
+
+                                <span
+                                    id="summary-duration"
+                                    class="summary-value"
+                                >
+                                    —
+                                </span>
+
+                            </div>
+
+
+                            <div class="summary-row">
+
+                                <span class="summary-label">End Time</span>
+
+                                <span
+                                    id="summary-end-time"
+                                    class="summary-value"
+                                >
+                                    —
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <a
+                            href="dashboard.html"
+                            class="btn btn-secondary"
+                        >
+                            Cancel
+                        </a>
+
+                        <button
+                            type="submit"
+                            id="book-appointment-btn"
+                            class="btn btn-primary"
+                        >
+                            Book Appointment
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<footer class="footer">
+
+    <p>© 2026 Appointly. All rights reserved.</p>
+
+</footer>
+
+
+<script src="../js/book-appointment.js"></script>
+
+</body>
+
+</html>

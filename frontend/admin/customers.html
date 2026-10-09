@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Management | Appointly</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/customers.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="customers.html" class="nav-item active">
+                <span>♙</span>
+                Customers
+            </a>
+
+            <a href="staff.html" class="nav-item">
+                <span>✚</span>
+                Staff
+            </a>
+
+            <a href="services.html" class="nav-item">
+                <span>▤</span>
+                Services
+            </a>
+
+            <a href="appointments.html" class="nav-item">
+                <span>▣</span>
+                Appointments
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span>▥</span>
+                Reports
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Customer Management</h1>
+
+                <p>
+                    Manage registered customers and their account status
+                </p>
+            </div>
+
+            <div class="staff-user">
+
+                <div class="avatar">
+                    A
+                </div>
+
+                <div class="staff-user-info">
+
+                    <strong id="adminName">
+                        Admin
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-label">Total Customers</div>
+                    <div class="stat-value" id="totalCustomers">0</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Active Customers</div>
+                    <div class="stat-value active" id="activeCustomers">0</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">Inactive Customers</div>
+                    <div class="stat-value inactive" id="inactiveCustomers">0</div>
+                </div>
+
+            </section>
+
+
+            <section class="customer-card">
+
+                <div class="filter-row">
+
+                    <div class="search-wrapper">
+                        <span class="search-icon">🔍</span>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search customer by name, email or phone..."
+                        >
+                    </div>
+
+                    <select id="statusFilter" class="filter-select">
+                        <option value="ALL">All Status</option>
+                        <option value="ACTIVE">Active</option>
+                        <option value="INACTIVE">Inactive</option>
+                    </select>
+
+                    <button
+                        type="button"
+                        id="clearFiltersBtn"
+                        class="btn btn-secondary"
+                    >
+                        Clear
+                    </button>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table class="customer-table">
+
+                        <thead>
+                            <tr>
+                                <th>S.R. No.</th>
+                                <th>Customer</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Date of Birth</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="customerTableBody">
+
+                            <tr>
+                                <td colspan="7" class="loading-cell">
+                                    <div class="loader"></div>
+                                    Loading customers...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div id="emptyState" class="empty-state hidden">
+
+                    <div class="empty-icon">👥</div>
+
+                    <h3>No customers found</h3>
+
+                    <p>No customer matches your search or filter.</p>
+
+                </div>
+
+
+                <div id="pagination" class="pagination"></div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div id="viewModal" class="modal-overlay hidden">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>Customer Details</h2>
+                <p>Customer account information.</p>
+            </div>
+
+            <button
+                type="button"
+                class="close-btn"
+                id="closeViewBtn"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="customer-profile">
+
+            <div class="profile-avatar" id="viewAvatar">--</div>
+
+            <div>
+                <h3 id="viewName">--</h3>
+                <p id="viewEmail">--</p>
+            </div>
+
+        </div>
+
+
+        <div class="details-grid">
+
+            <div class="detail-item">
+                <span>Phone</span>
+                <strong id="viewPhone">--</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Date of Birth</span>
+                <strong id="viewDob">--</strong>
+            </div>
+
+            <div class="detail-item full">
+                <span>Address</span>
+                <strong id="viewAddress">--</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Status</span>
+                <strong id="viewStatus">--</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Customer Since</span>
+                <strong id="viewCreated">--</strong>
+            </div>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="btn btn-secondary"
+                id="viewCloseAction"
+            >
+                Close
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                id="viewEditBtn"
+            >
+                Edit Customer
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="editModal" class="modal-overlay hidden">
+
+    <div class="modal edit-modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>Edit Customer</h2>
+                <p>Update customer information.</p>
+            </div>
+
+            <button
+                type="button"
+                class="close-btn"
+                id="closeEditBtn"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="editCustomerForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="editFirstName">First Name</label>
+                    <input type="text" id="editFirstName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editLastName">Last Name</label>
+                    <input type="text" id="editLastName" required>
+                </div>
+
+                <div class="form-group full">
+                    <label for="editEmail">Email</label>
+                    <input type="email" id="editEmail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editPhone">Phone</label>
+                    <input type="text" id="editPhone" maxlength="15" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editDob">Date of Birth</label>
+                    <input type="date" id="editDob">
+                </div>
+
+                <div class="form-group full">
+                    <label for="editAddress">Address</label>
+                    <textarea
+                        id="editAddress"
+                        rows="3"
+                        placeholder="Customer address"
+                    ></textarea>
+                </div>
+
+            </div>
+
+
+            <div class="status-control">
+
+                <div>
+                    <strong>Customer Status</strong>
+                    <p>Inactive customers cannot use the system.</p>
+                </div>
+
+                <label class="switch">
+
+                    <input type="checkbox" id="editIsActive">
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div id="editError" class="form-error hidden"></div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="cancelEditBtn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="saveCustomerBtn"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+
+<script src="../js/customers.js"></script>
+
+</body>
+
+</html>

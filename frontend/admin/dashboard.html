@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Appointly</title>
+
+    <link rel="stylesheet" href="../css/admin-dashboard.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="customers.html" class="nav-item">
+                <span>♙</span>
+                Customers
+            </a>
+
+            <a href="staff.html" class="nav-item">
+                <span>✚</span>
+                Staff
+            </a>
+
+            <a href="services.html" class="nav-item">
+                <span>▤</span>
+                Services
+            </a>
+
+            <a href="appointments.html" class="nav-item">
+                <span>▣</span>
+                Appointments
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span>▥</span>
+                Reports
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button
+                type="button"
+                id="logout-btn"
+                class="logout-btn"
+            >
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Admin Dashboard</h1>
+
+                <p>
+                    Manage customers, staff, services and appointments from one place
+                </p>
+            </div>
+
+            <div class="staff-user">
+
+                <div class="avatar">
+                    A
+                </div>
+
+                <div class="staff-user-info">
+
+                    <strong id="admin-name">
+                        Admin
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+
+            <div
+                id="dashboard-message"
+                class="dashboard-message hidden"
+            ></div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ♙
+                    </div>
+
+                    <div>
+                        <span>Total Customers</span>
+
+                        <strong id="total-customers">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ✚
+                    </div>
+
+                    <div>
+                        <span>Total Staff</span>
+
+                        <strong id="total-staff">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ⚕
+                    </div>
+
+                    <div>
+                        <span>Doctors</span>
+
+                        <strong id="total-doctors">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ▤
+                    </div>
+
+                    <div>
+                        <span>Active Services</span>
+
+                        <strong id="total-services">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <section class="appointment-overview">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Appointment Overview</h2>
+
+                        <p>Snapshot of appointment activity</p>
+                    </div>
+
+                    <a
+                        href="appointments.html"
+                        class="view-all-link"
+                    >
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="appointment-stat-grid">
+
+                    <div class="appointment-stat-card">
+
+                        <span class="appointment-stat-label">
+                            Today's Appointments
+                        </span>
+
+                        <strong
+                            id="today-appointments"
+                            class="appointment-stat-value"
+                        >
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="appointment-stat-card">
+
+                        <span class="appointment-stat-label">
+                            Upcoming
+                        </span>
+
+                        <strong
+                            id="upcoming-appointments"
+                            class="appointment-stat-value"
+                        >
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="appointment-stat-card">
+
+                        <span class="appointment-stat-label">
+                            Completed
+                        </span>
+
+                        <strong
+                            id="completed-appointments"
+                            class="appointment-stat-value"
+                        >
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="appointment-stat-card">
+
+                        <span class="appointment-stat-label">
+                            Cancelled
+                        </span>
+
+                        <strong
+                            id="cancelled-appointments"
+                            class="appointment-stat-value"
+                        >
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="quick-actions-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Quick Actions</h2>
+
+                        <p>Frequently used admin shortcuts</p>
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions-grid">
+
+                    <a
+                        href="add-staff.html"
+                        class="quick-action-card"
+                    >
+
+                        <div class="quick-action-icon">
+                            +
+                        </div>
+
+                        <div>
+                            <h3>Add Staff</h3>
+
+                            <p>
+                                Create a new staff account.
+                            </p>
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="services.html"
+                        class="quick-action-card"
+                    >
+
+                        <div class="quick-action-icon">
+                            +
+                        </div>
+
+                        <div>
+                            <h3>Add Service</h3>
+
+                            <p>
+                                Create and manage services.
+                            </p>
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="appointments.html"
+                        class="quick-action-card"
+                    >
+
+                        <div class="quick-action-icon">
+                            +
+                        </div>
+
+                        <div>
+                            <h3>Book Appointment</h3>
+
+                            <p>
+                                Create an appointment for a customer.
+                            </p>
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="customers.html"
+                        class="quick-action-card"
+                    >
+
+                        <div class="quick-action-icon">
+                            ♙
+                        </div>
+
+                        <div>
+                            <h3>Manage Customers</h3>
+
+                            <p>
+                                View and manage customer accounts.
+                            </p>
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <section class="recent-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Recent Appointments</h2>
+
+                        <p>Latest appointment activity</p>
+                    </div>
+
+                    <a
+                        href="appointments.html"
+                        class="view-all-link"
+                    >
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="recent-card">
+
+                    <div
+                        id="appointments-loading"
+                        class="loading-state"
+                    >
+                        Loading appointments...
+                    </div>
+
+
+                    <div
+                        id="appointments-empty"
+                        class="empty-state hidden"
+                    >
+                        No appointments found.
+                    </div>
+
+
+                    <div
+                        id="recent-appointments"
+                        class="recent-table-wrapper hidden"
+                    >
+
+                        <table class="recent-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Customer</th>
+                                    <th>Doctor</th>
+                                    <th>Service</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="appointments-table-body">
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<footer class="admin-footer">
+
+    <p>
+        © 2026 Appointly. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script src="../js/admin-dashboard.js"></script>
+
+</body>
+
+</html>

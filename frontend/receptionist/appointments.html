@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Receptionist - Appointments</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/receptionist-appointments.css">
+</head>
+
+<body>
+
+<div class="receptionist-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="appointments.html" class="nav-item active">
+                <span>▣</span>
+                Appointments
+            </a>
+
+            <a href="customers.html" class="nav-item">
+                <span>♙</span>
+                Customers
+            </a>
+
+            <a href="availability.html" class="nav-item">
+                <span>◷</span>
+                Availability
+            </a>
+
+            <a href="profile.html" class="nav-item">
+                <span>◯</span>
+                My Profile
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button id="logoutBtn" class="logout-btn">
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Appointments</h1>
+
+                <p>
+                    Manage customer appointments
+                </p>
+            </div>
+
+            <div class="staff-user">
+
+                <div class="avatar" id="staffAvatar">
+                    R
+                </div>
+
+                <div class="staff-user-info">
+
+                    <strong id="staffName">
+                        Receptionist
+                    </strong>
+
+                    <span>
+                        Receptionist
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ▣
+                    </div>
+
+                    <div>
+                        <span>Total</span>
+
+                        <strong id="totalAppointments">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ◷
+                    </div>
+
+                    <div>
+                        <span>Scheduled</span>
+
+                        <strong id="scheduledAppointments">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>Completed</span>
+
+                        <strong id="completedAppointments">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon red">
+                        ×
+                    </div>
+
+                    <div>
+                        <span>Cancelled</span>
+
+                        <strong id="cancelledAppointments">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <section class="appointments-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Appointment Management</h2>
+
+                        <p>
+                            View and manage appointments for all doctors
+                        </p>
+                    </div>
+
+                    <button
+                        id="openBookModalBtn"
+                        class="primary-btn">
+
+                        + Book Appointment
+
+                    </button>
+
+                </div>
+
+
+                <div class="filters">
+
+                    <div class="filter-group search-group">
+
+                        <label>
+                            Search
+                        </label>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search customer...">
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label>
+                            Doctor
+                        </label>
+
+                        <select id="staffFilter">
+
+                            <option value="">
+                                All Doctors
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label>
+                            Service
+                        </label>
+
+                        <select id="serviceFilter">
+
+                            <option value="">
+                                All Services
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label>
+                            Status
+                        </label>
+
+                        <select id="statusFilter">
+
+                            <option value="">
+                                All Status
+                            </option>
+
+                            <option value="SCHEDULED">
+                                Scheduled
+                            </option>
+
+                            <option value="RESCHEDULED">
+                                Rescheduled
+                            </option>
+
+                            <option value="COMPLETED">
+                                Completed
+                            </option>
+
+                            <option value="CANCELLED">
+                                Cancelled
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label>
+                            Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="dateFilter">
+
+                    </div>
+
+
+                    <div class="filter-actions">
+
+                        <button
+                            id="clearFiltersBtn"
+                            class="secondary-btn">
+
+                            Clear
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>S.R. No.</th>
+                                <th>Customer</th>
+                                <th>Doctor</th>
+                                <th>Service</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="appointmentsBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="8"
+                                    class="loading-cell">
+
+                                    Loading appointments...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="pagination">
+
+                    <button
+                        id="prevBtn"
+                        class="page-btn">
+
+                        Previous
+
+                    </button>
+
+                    <span id="pageInfo">
+                        Page 1
+                    </span>
+
+                    <button
+                        id="nextBtn"
+                        class="page-btn">
+
+                        Next
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div
+    id="bookModal"
+    class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>Book Appointment</h2>
+
+                <p>
+                    Create an appointment for a customer
+                </p>
+            </div>
+
+            <button
+                class="close-btn"
+                id="closeBookModalBtn">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <form id="bookAppointmentForm">
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Customer *
+                    </label>
+
+                    <select
+                        id="customerInput"
+                        required>
+
+                        <option value="">
+                            Select Customer
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Doctor *
+                    </label>
+
+                    <select
+                        id="staffInput"
+                        required>
+
+                        <option value="">
+                            Select Doctor
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Service *
+                    </label>
+
+                    <select
+                        id="serviceInput"
+                        required>
+
+                        <option value="">
+                            Select Service
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Date *
+                    </label>
+
+                    <input
+                        type="date"
+                        id="appointmentDateInput"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Start Time *
+                    </label>
+
+                    <input
+                        type="time"
+                        id="startTimeInput"
+                        required>
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label>
+                        Reason
+                    </label>
+
+                    <textarea
+                        id="reasonInput"
+                        rows="3"
+                        placeholder="Enter appointment reason...">
+                    </textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    id="cancelBookBtn"
+                    class="secondary-btn">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    Book Appointment
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div
+    id="viewModal"
+    class="modal">
+
+    <div class="modal-content small-modal">
+
+        <div class="modal-header">
+
+            <h2>Appointment Details</h2>
+
+            <button
+                class="close-btn"
+                id="closeViewModalBtn">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="appointmentDetails"
+            class="appointment-details">
+
+            Loading...
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                id="closeViewBtn"
+                class="secondary-btn">
+
+                Close
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div
+    id="rescheduleModal"
+    class="modal">
+
+    <div class="modal-content small-modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>Reschedule Appointment</h2>
+
+                <p>
+                    Select a new date and time
+                </p>
+            </div>
+
+            <button
+                class="close-btn"
+                id="closeRescheduleModalBtn">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <form id="rescheduleForm">
+
+            <input
+                type="hidden"
+                id="rescheduleAppointmentId">
+
+
+            <div class="form-group">
+
+                <label>
+                    New Date *
+                </label>
+
+                <input
+                    type="date"
+                    id="rescheduleDate"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    New Start Time *
+                </label>
+
+                <input
+                    type="time"
+                    id="rescheduleTime"
+                    required>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    id="cancelRescheduleBtn"
+                    class="secondary-btn">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    Reschedule
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div
+    id="toast"
+    class="toast">
+</div>
+
+
+<script src="../js/main.js"></script>
+<script src="../js/receptionist-appointments.js"></script>
+
+</body>
+
+</html>

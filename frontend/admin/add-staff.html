@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Staff | Appointly</title>
+
+
+    <link rel="stylesheet" href="../css/add-staff.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="customers.html" class="nav-item">
+                <span>♙</span>
+                Customers
+            </a>
+
+            <a href="staff.html" class="nav-item active">
+                <span>✚</span>
+                Staff
+            </a>
+
+            <a href="services.html" class="nav-item">
+                <span>▤</span>
+                Services
+            </a>
+
+            <a href="appointments.html" class="nav-item">
+                <span>▣</span>
+                Appointments
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span>▥</span>
+                Reports
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Add Staff</h1>
+
+                <p>
+                    Create a staff account and assign their role and services
+                </p>
+            </div>
+
+            <div class="staff-user">
+
+                <div class="avatar">
+                    A
+                </div>
+
+                <div class="staff-user-info">
+
+                    <strong id="adminName">
+                        Admin
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <div class="page-heading">
+
+                <a href="dashboard.html" class="back-link">
+                    ← Back to Dashboard
+                </a>
+
+            </div>
+
+
+            <div
+                id="messageBox"
+                class="message-box hidden"
+            ></div>
+
+
+            <section class="staff-form-card">
+
+                <form id="addStaffForm">
+
+                    <div class="form-section">
+
+                        <div class="section-title">
+
+                            <h2>Personal Information</h2>
+
+                            <p>
+                                Enter the staff member's basic details.
+                            </p>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="firstName">
+                                    First Name <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    name="first_name"
+                                    placeholder="Enter first name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="lastName">
+                                    Last Name <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="last_name"
+                                    placeholder="Enter last name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="email">
+                                    Email Address <span>*</span>
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="staff@example.com"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="phone">
+                                    Phone Number <span>*</span>
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="Enter phone number"
+                                    maxlength="15"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-section">
+
+                        <div class="section-title">
+
+                            <h2>Account Information</h2>
+
+                            <p>
+                                Set the staff login password.
+                            </p>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="password">
+                                    Password <span>*</span>
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    placeholder="Minimum 8 characters"
+                                    minlength="8"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="confirmPassword">
+                                    Confirm Password <span>*</span>
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    placeholder="Confirm password"
+                                    minlength="8"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-section">
+
+                        <div class="section-title">
+
+                            <h2>Staff Information</h2>
+
+                            <p>
+                                Define the staff member's responsibility.
+                            </p>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="staffType">
+                                    Staff Type <span>*</span>
+                                </label>
+
+                                <select
+                                    id="staffType"
+                                    name="staff_type"
+                                    required
+                                >
+                                    <option value="">
+                                        Select staff type
+                                    </option>
+
+                                    <option value="DOCTOR">
+                                        Doctor
+                                    </option>
+
+                                    <option value="RECEPTIONIST">
+                                        Receptionist
+                                    </option>
+
+                                    <option value="OTHER">
+                                        Other Staff
+                                    </option>
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="designation">
+                                    Designation
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="designation"
+                                    name="designation"
+                                    placeholder="e.g. Senior Doctor"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="department">
+                                    Department
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="department"
+                                    name="department"
+                                    placeholder="e.g. General Medicine"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group services-group">
+
+                                <label>
+                                    Services
+                                </label>
+
+                                <div
+                                    id="servicesDropdown"
+                                    class="services-dropdown"
+                                >
+
+                                    <button
+                                        type="button"
+                                        id="servicesDropdownButton"
+                                        class="services-dropdown-button"
+                                    >
+                                        <span id="servicesSelectedText">
+                                            Select services
+                                        </span>
+
+                                        <span class="dropdown-arrow">
+                                            ▼
+                                        </span>
+                                    </button>
+
+                                    <div
+                                        id="servicesDropdownMenu"
+                                        class="services-dropdown-menu"
+                                    >
+                                        <div class="services-loading">
+                                            Loading services...
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <small class="field-help">
+                                    Select the services this staff member can provide.
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <a
+                            href="dashboard.html"
+                            class="cancel-btn"
+                        >
+                            Cancel
+                        </a>
+
+                        <button
+                            type="submit"
+                            id="createStaffBtn"
+                            class="create-btn"
+                        >
+                            Create Staff
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="../js/add-staff.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Services | Appointly</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/services.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="book-appointment.html" class="nav-item">
+                <span>+</span>
+                Book Appointment
+            </a>
+
+            <a href="services.html" class="nav-item active">
+                <span>▣</span>
+                Services
+            </a>
+
+            <a href="my-appointments.html" class="nav-item">
+                <span>◷</span>
+                My Appointments
+            </a>
+
+            <a href="profile.html" class="nav-item">
+                <span>◯</span>
+                Profile
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button id="logout-btn" class="logout-btn">
+                <span>↪</span>
+                Sign out
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Available Services</h1>
+
+                <p>
+                    Choose a service and book an appointment with an available doctor
+                </p>
+            </div>
+
+            <div class="staff-user">
+
+                <div class="avatar">
+                    C
+                </div>
+
+                <div class="staff-user-info">
+
+                    <strong>
+                        Customer
+                    </strong>
+
+                    <span>
+                        Customer Portal
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <div
+                id="services-message"
+                class="services-message"
+                hidden
+            ></div>
+
+
+            <div
+                id="services-loading"
+                class="services-loading"
+            >
+
+                <div class="loading-spinner"></div>
+
+                <p>
+                    Loading services...
+                </p>
+
+            </div>
+
+
+            <section
+                id="services-grid"
+                class="services-grid"
+            >
+            </section>
+
+
+            <section
+                id="services-empty"
+                class="services-empty"
+                hidden
+            >
+
+                <div class="empty-icon">ⓘ</div>
+
+                <h2>No Services Available</h2>
+
+                <p>
+                    There are currently no active services available for booking.
+                </p>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<footer class="footer">
+
+    <p>© 2026 Appointly. All rights reserved.</p>
+
+</footer>
+
+
+<script src="../js/services.js"></script>
+
+</body>
+
+</html>
