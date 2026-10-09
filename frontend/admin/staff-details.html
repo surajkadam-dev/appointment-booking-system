@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Staff | Appointly</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/admin-staff-details.css">
+</head>
+<body>
+<div class="admin-layout">
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-icon">A</div>
+            <div>
+                <h2>Appointment</h2>
+                <span>Management</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><span>⌂</span> Dashboard</a>
+            <a href="customers.html" class="nav-item"><span>♙</span> Customers</a>
+            <a href="staff.html" class="nav-item active"><span>✚</span> Staff</a>
+            <a href="services.html" class="nav-item"><span>▤</span> Services</a>
+            <a href="appointments.html" class="nav-item"><span>▣</span> Appointments</a>
+            <a href="reports.html" class="nav-item"><span>▥</span> Reports</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button type="button" id="logoutBtn" class="logout-btn">
+                <span>↪</span> Logout
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h1>Edit Staff</h1>
+                <p>Update staff profile, role and assigned services.</p>
+            </div>
+
+            <div class="staff-user">
+                <div class="avatar">A</div>
+                <div class="staff-user-info">
+                    <strong id="adminName">Admin</strong>
+                    <span>Administrator</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="page-content">
+            <div class="page-heading">
+                <a href="staff.html" class="back-link">← Back to Staff</a>
+                <span id="staffIdLabel" class="staff-id-label">Staff ID: —</span>
+            </div>
+
+            <div id="pageMessage" class="page-message hidden" role="alert"></div>
+
+            <div id="loadingState" class="loading-state">
+                <div class="loader"></div>
+                <p>Loading staff details...</p>
+            </div>
+
+            <form id="staffDetailsForm" class="staff-form hidden">
+                <section class="form-card">
+                    <div class="card-heading">
+                        <div>
+                            <h2>Personal Information</h2>
+                            <p>Update the staff member's basic details.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="first_name">First Name <span>*</span></label>
+                            <input type="text" id="first_name" name="first_name" maxlength="150" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="last_name">Last Name <span>*</span></label>
+                            <input type="text" id="last_name" name="last_name" maxlength="150" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="email">Email Address <span>*</span></label>
+                            <input type="email" id="email" name="email" maxlength="254" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span>*</span></label>
+                            <input type="tel" id="phone" name="phone" maxlength="20" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="staff_type">Staff Type <span>*</span></label>
+                            <select id="staff_type" name="staff_type" required>
+                                <option value="">Select staff type</option>
+                                <option value="DOCTOR">Doctor</option>
+                                <option value="RECEPTIONIST">Receptionist</option>
+                                <option value="OTHER STAFF">Other Staff</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="designation">Designation</label>
+                            <input type="text" id="designation" name="designation" maxlength="150">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <input type="text" id="department" name="department" maxlength="150">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-card">
+                    <div class="card-heading">
+                        <div>
+                            <h2>Assigned Services</h2>
+                            <p>Select the services this staff member can provide.</p>
+                        </div>
+                    </div>
+
+                    <div id="servicesContainer" class="services-grid">
+                        <p class="muted-text">Loading services...</p>
+                    </div>
+                    <p id="servicesError" class="field-error hidden"></p>
+                </section>
+
+                <section class="form-card">
+                    <div class="card-heading">
+                        <div>
+                            <h2>Staff Status</h2>
+                            <p>Manage the account and appointment availability.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="is_active">Account Status</label>
+                            <select id="is_active" name="is_active">
+                                <option value="true">Active</option>
+                                <option value="false">Inactive</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="is_available">Appointment Availability</label>
+                            <select id="is_available" name="is_available">
+                                <option value="true">Available</option>
+                                <option value="false">Unavailable</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="form-actions">
+                    <a href="staff.html" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" id="saveStaffBtn" class="btn btn-primary">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="../js/admin-staff-details.js"></script>
+</body>
+</html>
