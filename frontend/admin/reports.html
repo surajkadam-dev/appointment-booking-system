@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reports & Analytics | Appointly</title>
+    <title>Reports &amp; Analytics | Appointly</title>
 
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/admin-reports.css">
@@ -61,16 +61,10 @@
         </nav>
 
         <div class="sidebar-bottom">
-
-            <button
-                id="logoutBtn"
-                class="logout-btn"
-                type="button"
-            >
+            <button id="logoutBtn" class="logout-btn" type="button">
                 <span>↪</span>
                 Logout
             </button>
-
         </div>
 
     </aside>
@@ -81,40 +75,24 @@
         <header class="topbar">
 
             <div>
-                <h1>Reports & Analytics</h1>
-
-                <p>
-                    Appointment and business performance reports
-                </p>
+                <h1>Reports &amp; Analytics</h1>
+                <p>Appointment and business performance reports</p>
             </div>
 
             <div class="topbar-actions">
 
                 <div class="staff-user">
 
-                    <div class="avatar">
-                        A
-                    </div>
+                    <div class="avatar">A</div>
 
                     <div class="staff-user-info">
-
-                        <strong id="adminName">
-                            Admin
-                        </strong>
-
-                        <span>
-                            Administrator
-                        </span>
-
+                        <strong id="adminName">Admin</strong>
+                        <span>Administrator</span>
                     </div>
 
                 </div>
 
-                <button
-                    id="refreshBtn"
-                    class="secondary-btn"
-                    type="button"
-                >
+                <button id="refreshBtn" class="secondary-btn" type="button">
                     ↻ Refresh
                 </button>
 
@@ -125,60 +103,62 @@
 
         <section class="page-content">
 
+            <section class="export-toolbar" aria-label="Export reports">
+
+                <div class="export-toolbar-text">
+                    <h3>Export Reports</h3>
+                    <p>Download Excel reports using your administrator session and selected filters.</p>
+                </div>
+
+                <button
+                    type="button"
+                    class="primary-btn report-download-btn"
+                    data-report-endpoint="admin/dashboard/"
+                    data-report-name="Dashboard Report"
+                >
+                    ⬇ Download Dashboard Excel
+                </button>
+
+            </section>
+
+            <div
+                id="exportMessage"
+                class="export-message hidden"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+
             <section class="filter-card">
 
                 <div class="filter-title">
 
-                    <div class="filter-icon">
-                        📅
-                    </div>
+                    <div class="filter-icon">📅</div>
 
                     <div>
                         <h3>Report Period</h3>
-
-                        <p>
-                            Select the period for appointment reports
-                        </p>
+                        <p>Select the period for appointment reports</p>
                     </div>
 
                 </div>
 
-
                 <div class="filter-controls">
 
                     <div class="field">
-
-                        <label for="fromDate">
-                            From Date
-                        </label>
-
+                        <label for="fromDate">From Date</label>
                         <input type="date" id="fromDate">
-
                     </div>
 
                     <div class="field">
-
-                        <label for="toDate">
-                            To Date
-                        </label>
-
+                        <label for="toDate">To Date</label>
                         <input type="date" id="toDate">
-
                     </div>
 
-                    <button
-                        id="applyFilterBtn"
-                        class="primary-btn"
-                        type="button"
-                    >
+                    <button id="applyFilterBtn" class="primary-btn" type="button">
                         Apply
                     </button>
 
-                    <button
-                        id="clearFilterBtn"
-                        class="secondary-btn"
-                        type="button"
-                    >
+                    <button id="clearFilterBtn" class="secondary-btn" type="button">
                         Clear
                     </button>
 
@@ -191,29 +171,18 @@
 
                 <div class="spinner"></div>
 
-                <p>
-                    Loading reports...
-                </p>
+                <p>Loading reports...</p>
 
             </div>
 
 
             <div id="errorState" class="error-state hidden">
 
-                <div class="error-icon">
-                    !
-                </div>
+                <div class="error-icon">!</div>
 
                 <div>
-
-                    <strong>
-                        Unable to load reports
-                    </strong>
-
-                    <p id="errorMessage">
-                        Something went wrong.
-                    </p>
-
+                    <strong>Unable to load reports</strong>
+                    <p id="errorMessage">Something went wrong.</p>
                 </div>
 
             </div>
@@ -224,81 +193,51 @@
                 <section class="kpi-grid">
 
                     <div class="kpi-card">
-
-                        <div class="kpi-icon blue">
-                            📅
-                        </div>
-
+                        <div class="kpi-icon blue">📅</div>
                         <div>
                             <span>Total Appointments</span>
                             <strong id="totalAppointments">0</strong>
                         </div>
-
                     </div>
 
                     <div class="kpi-card">
-
-                        <div class="kpi-icon green">
-                            ✓
-                        </div>
-
+                        <div class="kpi-icon green">✓</div>
                         <div>
                             <span>Completed</span>
                             <strong id="completedAppointments">0</strong>
                         </div>
-
                     </div>
 
                     <div class="kpi-card">
-
-                        <div class="kpi-icon orange">
-                            ⏳
-                        </div>
-
+                        <div class="kpi-icon orange">⏳</div>
                         <div>
                             <span>Scheduled</span>
                             <strong id="scheduledAppointments">0</strong>
                         </div>
-
                     </div>
 
                     <div class="kpi-card">
-
-                        <div class="kpi-icon red">
-                            ×
-                        </div>
-
+                        <div class="kpi-icon red">×</div>
                         <div>
                             <span>Cancelled</span>
                             <strong id="cancelledAppointments">0</strong>
                         </div>
-
                     </div>
 
                     <div class="kpi-card">
-
-                        <div class="kpi-icon purple">
-                            %
-                        </div>
-
+                        <div class="kpi-icon purple">%</div>
                         <div>
                             <span>Completion Rate</span>
                             <strong id="completionRate">0%</strong>
                         </div>
-
                     </div>
 
                     <div class="kpi-card">
-
-                        <div class="kpi-icon teal">
-                            ₹
-                        </div>
-
+                        <div class="kpi-icon teal">₹</div>
                         <div>
-                            <span>Total Revenue</span>
+                            <span>Estimated Service Value</span>
                             <strong id="totalRevenue">₹0</strong>
                         </div>
-
                     </div>
 
                 </section>
@@ -308,17 +247,26 @@
 
                     <div class="report-header">
 
-                        <div>
+                        <div class="report-header-title">
                             <h2>Daily Appointment Report</h2>
                             <p>Appointment activity by date</p>
+                        </div>
+
+                        <div class="report-header-actions">
+                            <button
+                                type="button"
+                                class="secondary-btn report-download-btn"
+                                data-report-endpoint="admin/appointments/daily/"
+                                data-report-name="Daily Appointment Report"
+                            >
+                                ⬇ Download Excel
+                            </button>
                         </div>
 
                     </div>
 
                     <div class="table-wrapper">
-
                         <table>
-
                             <thead>
                                 <tr>
                                     <th>Date</th>
@@ -329,19 +277,14 @@
                                     <th>Rescheduled</th>
                                 </tr>
                             </thead>
-
                             <tbody id="dailyTableBody">
-
                                 <tr>
                                     <td colspan="6" class="empty-row">
                                         No data available.
                                     </td>
                                 </tr>
-
                             </tbody>
-
                         </table>
-
                     </div>
 
                 </section>
@@ -351,27 +294,33 @@
 
                     <div class="report-header">
 
-                        <div>
+                        <div class="report-header-title">
                             <h2>Monthly Appointment Report</h2>
                             <p>Appointment activity by month</p>
                         </div>
 
-                        <div class="year-control">
+                        <div class="report-header-actions">
 
-                            <label for="reportYear">
-                                Year
-                            </label>
+                            <div class="year-control">
+                                <label for="reportYear">Year</label>
+                                <select id="reportYear"></select>
+                            </div>
 
-                            <select id="reportYear"></select>
+                            <button
+                                type="button"
+                                class="secondary-btn report-download-btn"
+                                data-report-endpoint="admin/appointments/monthly/"
+                                data-report-name="Monthly Appointment Report"
+                            >
+                                ⬇ Download Excel
+                            </button>
 
                         </div>
 
                     </div>
 
                     <div class="table-wrapper">
-
                         <table>
-
                             <thead>
                                 <tr>
                                     <th>Month</th>
@@ -382,19 +331,14 @@
                                     <th>Rescheduled</th>
                                 </tr>
                             </thead>
-
                             <tbody id="monthlyTableBody">
-
                                 <tr>
                                     <td colspan="6" class="empty-row">
                                         No data available.
                                     </td>
                                 </tr>
-
                             </tbody>
-
                         </table>
-
                     </div>
 
                 </section>
@@ -404,17 +348,26 @@
 
                     <div class="report-header">
 
-                        <div>
+                        <div class="report-header-title">
                             <h2>Doctor Performance</h2>
                             <p>Appointment performance by doctor</p>
+                        </div>
+
+                        <div class="report-header-actions">
+                            <button
+                                type="button"
+                                class="secondary-btn report-download-btn"
+                                data-report-endpoint="admin/doctors/"
+                                data-report-name="Doctor Performance"
+                            >
+                                ⬇ Download Excel
+                            </button>
                         </div>
 
                     </div>
 
                     <div class="table-wrapper">
-
                         <table>
-
                             <thead>
                                 <tr>
                                     <th>Doctor</th>
@@ -426,19 +379,14 @@
                                     <th>Completion Rate</th>
                                 </tr>
                             </thead>
-
                             <tbody id="doctorTableBody">
-
                                 <tr>
                                     <td colspan="7" class="empty-row">
                                         No data available.
                                     </td>
                                 </tr>
-
                             </tbody>
-
                         </table>
-
                     </div>
 
                 </section>
@@ -448,39 +396,43 @@
 
                     <div class="report-header">
 
-                        <div>
+                        <div class="report-header-title">
                             <h2>Service Utilization</h2>
-                            <p>Appointment and revenue by service</p>
+                            <p>Appointment activity and estimated service value by service</p>
+                        </div>
+
+                        <div class="report-header-actions">
+                            <button
+                                type="button"
+                                class="secondary-btn report-download-btn"
+                                data-report-endpoint="admin/services/"
+                                data-report-name="Service Utilization"
+                            >
+                                ⬇ Download Excel
+                            </button>
                         </div>
 
                     </div>
 
                     <div class="table-wrapper">
-
                         <table>
-
                             <thead>
                                 <tr>
                                     <th>Service</th>
                                     <th>Appointments</th>
                                     <th>Completed</th>
                                     <th>Cancelled</th>
-                                    <th>Revenue</th>
+                                    <th>Estimated Value</th>
                                 </tr>
                             </thead>
-
                             <tbody id="serviceTableBody">
-
                                 <tr>
                                     <td colspan="5" class="empty-row">
                                         No data available.
                                     </td>
                                 </tr>
-
                             </tbody>
-
                         </table>
-
                     </div>
 
                 </section>
@@ -490,54 +442,53 @@
 
                     <div class="report-header">
 
-                        <div>
+                        <div class="report-header-title">
                             <h2>Cancellation Report</h2>
                             <p>Cancellation trends and doctor-wise cancellations</p>
+                        </div>
+
+                        <div class="report-header-actions">
+                            <button
+                                type="button"
+                                class="secondary-btn report-download-btn"
+                                data-report-endpoint="admin/cancellations/"
+                                data-report-name="Cancellation Report"
+                            >
+                                ⬇ Download Excel
+                            </button>
                         </div>
 
                     </div>
 
                     <div class="mini-stats">
-
                         <div>
                             <span>Total Cancelled</span>
                             <strong id="reportCancelled">0</strong>
                         </div>
-
                         <div>
                             <span>Cancellation Rate</span>
                             <strong id="reportCancellationRate">0%</strong>
                         </div>
-
                     </div>
 
-                    <h3 class="sub-heading">
-                        By Doctor
-                    </h3>
+                    <h3 class="sub-heading">By Doctor</h3>
 
                     <div class="table-wrapper">
-
                         <table>
-
                             <thead>
                                 <tr>
                                     <th>Doctor</th>
                                     <th>Cancelled</th>
                                 </tr>
                             </thead>
-
                             <tbody id="cancellationTableBody">
-
                                 <tr>
                                     <td colspan="2" class="empty-row">
                                         No cancellations.
                                     </td>
                                 </tr>
-
                             </tbody>
-
                         </table>
-
                     </div>
 
                 </section>
@@ -547,46 +498,47 @@
 
                     <div class="report-header">
 
-                        <div>
+                        <div class="report-header-title">
                             <h2>Peak Hours</h2>
                             <p>Appointment distribution by hour</p>
                         </div>
 
-                        <div class="year-control">
+                        <div class="report-header-actions">
 
-                            <label for="peakDate">
-                                Date
-                            </label>
+                            <div class="year-control">
+                                <label for="peakDate">Date</label>
+                                <input type="date" id="peakDate">
+                            </div>
 
-                            <input type="date" id="peakDate">
+                            <button
+                                type="button"
+                                class="secondary-btn report-download-btn"
+                                data-report-endpoint="admin/peak-hours/"
+                                data-report-name="Peak Hours"
+                            >
+                                ⬇ Download Excel
+                            </button>
 
                         </div>
 
                     </div>
 
                     <div class="table-wrapper">
-
                         <table>
-
                             <thead>
                                 <tr>
                                     <th>Time</th>
                                     <th>Appointments</th>
                                 </tr>
                             </thead>
-
                             <tbody id="peakHoursTableBody">
-
                                 <tr>
                                     <td colspan="2" class="empty-row">
                                         Select a date.
                                     </td>
                                 </tr>
-
                             </tbody>
-
                         </table>
-
                     </div>
 
                 </section>
@@ -596,60 +548,58 @@
 
                     <div class="report-header">
 
-                        <div>
+                        <div class="report-header-title">
                             <h2>Revenue Report</h2>
-                            <p>Revenue generated from completed appointments</p>
+                            <p>Estimated service value from completed appointments (not confirmed payments)</p>
+                        </div>
+
+                        <div class="report-header-actions">
+                            <button
+                                type="button"
+                                class="secondary-btn report-download-btn"
+                                data-report-endpoint="admin/revenue/"
+                                data-report-name="Revenue Report"
+                            >
+                                ⬇ Download Excel
+                            </button>
                         </div>
 
                     </div>
 
                     <div class="revenue-summary">
-
                         <div>
                             <span>Completed Appointments</span>
                             <strong id="revenueAppointments">0</strong>
                         </div>
-
                         <div>
-                            <span>Total Revenue</span>
+                            <span>Estimated Service Value</span>
                             <strong id="revenueTotal">₹0</strong>
                         </div>
-
                         <div>
                             <span>Average per Appointment</span>
                             <strong id="revenueAverage">₹0</strong>
                         </div>
-
                     </div>
 
-                    <h3 class="sub-heading">
-                        Revenue by Service
-                    </h3>
+                    <h3 class="sub-heading">Estimated Value by Service</h3>
 
                     <div class="table-wrapper">
-
                         <table>
-
                             <thead>
                                 <tr>
                                     <th>Service</th>
                                     <th>Appointments</th>
-                                    <th>Revenue</th>
+                                    <th>Estimated Value</th>
                                 </tr>
                             </thead>
-
                             <tbody id="revenueTableBody">
-
                                 <tr>
                                     <td colspan="3" class="empty-row">
                                         No revenue data.
                                     </td>
                                 </tr>
-
                             </tbody>
-
                         </table>
-
                     </div>
 
                 </section>

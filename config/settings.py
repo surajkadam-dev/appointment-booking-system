@@ -216,6 +216,7 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 REST_FRAMEWORK = {
 
+ "URL_FORMAT_OVERRIDE": None,
     # --------------------------------------------------------
     # Authentication
     # --------------------------------------------------------

@@ -10,16 +10,76 @@ from .views import (
     CancellationReportView,
     PeakHoursReportView,
     RevenueReportView,
+    CustomerAppointmentHistoryReportView,
+    DoctorAssignedAppointmentHistoryReportView,
+    StaffAppointmentHistoryReportView,
+    StaffAvailabilityReportView,
 )
 
 urlpatterns = [
-    path("admin/dashboard/", AdminDashboardReportView.as_view(), name="admin-dashboard-report"),
-    path("admin/appointments/daily/", DailyAppointmentReportView.as_view(), name="admin-daily-appointments"),
-    path("admin/appointments/monthly/", MonthlyAppointmentReportView.as_view(), name="admin-monthly-appointments"),
-    path("admin/appointments/date-range/", DateRangeAppointmentReportView.as_view(), name="admin-date-range-appointments"),
-    path("admin/doctors/", DoctorPerformanceReportView.as_view(), name="admin-doctor-performance"),
-    path("admin/services/", ServiceUtilizationReportView.as_view(), name="admin-service-utilization"),
-    path("admin/cancellations/", CancellationReportView.as_view(), name="admin-cancellations"),
-    path("admin/peak-hours/", PeakHoursReportView.as_view(), name="admin-peak-hours"),
-    path("admin/revenue/", RevenueReportView.as_view(), name="admin-revenue"),
+    path(
+        "admin/dashboard/",
+        AdminDashboardReportView.as_view(),
+        name="admin-dashboard-report",
+    ),
+    path(
+        "admin/appointments/daily/",
+        DailyAppointmentReportView.as_view(),
+        name="admin-daily-appointments",
+    ),
+    path(
+        "admin/appointments/monthly/",
+        MonthlyAppointmentReportView.as_view(),
+        name="admin-monthly-appointments",
+    ),
+    path(
+        "admin/appointments/date-range/",
+        DateRangeAppointmentReportView.as_view(),
+        name="admin-date-range-appointments",
+    ),
+    path(
+        "admin/doctors/",
+        DoctorPerformanceReportView.as_view(),
+        name="admin-doctor-performance",
+    ),
+    path(
+        "admin/services/",
+        ServiceUtilizationReportView.as_view(),
+        name="admin-service-utilization",
+    ),
+    path(
+        "admin/cancellations/",
+        CancellationReportView.as_view(),
+        name="admin-cancellations",
+    ),
+    path(
+        "admin/peak-hours/",
+        PeakHoursReportView.as_view(),
+        name="admin-peak-hours",
+    ),
+    path(
+        "admin/revenue/",
+        RevenueReportView.as_view(),
+        name="admin-revenue",
+    ),
+    path(
+        "admin/customers/<int:customer_id>/history/",
+        CustomerAppointmentHistoryReportView.as_view(),
+        name="admin-customer-appointment-history",
+    ),
+    path(
+        "admin/doctors/<int:doctor_id>/appointments/",
+        DoctorAssignedAppointmentHistoryReportView.as_view(),
+        name="admin-doctor-appointment-history",
+    ),
+    path(
+        "admin/staff/<int:staff_id>/history/",
+        StaffAppointmentHistoryReportView.as_view(),
+        name="admin-staff-appointment-history",
+    ),
+    path(
+        "admin/staff-availability/",
+        StaffAvailabilityReportView.as_view(),
+        name="admin-staff-availability-report",
+    ),
 ]
